@@ -149,5 +149,16 @@ def build():
 
     print(f"[OK] Generated Extension in: {EXT_DIST_DIR}")
 
+    # 5. Create ready-to-upload ZIP for Chrome Web Store
+    import zipfile
+    zip_path = os.path.join(DIST_DIR, "acheron-map-mod-webstore.zip")
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        for root_dir, _, filenames in os.walk(EXT_DIST_DIR):
+            for fn in filenames:
+                full_path = os.path.join(root_dir, fn)
+                rel_path = os.path.relpath(full_path, EXT_DIST_DIR)
+                zf.write(full_path, rel_path)
+    print(f"[OK] Generated Chrome Web Store ZIP: {zip_path}")
+
 if __name__ == "__main__":
     build()
