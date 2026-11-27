@@ -22,27 +22,43 @@ In standard Acheron, checking your map requires pressing <kbd>M</kbd> or clickin
 
 ## 🚀 Installation & Usage
 
-Choose either of the two installation methods below:
+Choose whichever method is easiest for you:
 
-### Option 1: Userscript (Recommended — Easiest)
-Works in any browser with **Tampermonkey** or **Violentmonkey**:
+### Option 1: Userscript (Recommended — Fastest & Works on All Browsers)
+Works on **Chrome, Firefox, Edge, Brave, Safari, and Opera**:
 
-1. Install [Violentmonkey](https://violentmonkey.github.io/) or [Tampermonkey](https://www.tampermonkey.net/) in your browser.
-2. In your userscript manager dashboard, create a **New Script** (or use "Install from file / URL").
-3. Copy and paste the contents of [`dist/acheron-map-mod.user.js`](dist/acheron-map-mod.user.js).
-4. Save the script and visit [Acheron](https://acheron.dylanmccoyshaw.workers.dev/). The mini-map will appear automatically!
+1. Install a userscript manager extension if you don't already have one:
+   - [Violentmonkey](https://violentmonkey.github.io/) (Open-source, recommended)
+   - [Tampermonkey](https://www.tampermonkey.net/)
+2. Open your userscript manager dashboard and click **Create a new script** (or `+`).
+3. Copy the entire contents of [`dist/acheron-map-mod.user.js`](dist/acheron-map-mod.user.js) and paste it into the editor, replacing any default template.
+4. Save the script (<kbd>Ctrl</kbd> + <kbd>S</kbd> or click the Save icon).
+5. Open [https://acheron.dylanmccoyshaw.workers.dev/](https://acheron.dylanmccoyshaw.workers.dev/). The live mini-map will appear automatically!
 
 ---
 
-### Option 2: Chrome / Edge / Brave Extension (Unpacked)
+### Option 2: Browser Extension (Chrome, Edge, Brave, Opera)
+No userscript manager needed — runs natively as an unpacked extension:
 
-1. Open your browser's extension manager:
-   - Chrome / Brave: navigate to `chrome://extensions`
-   - Edge: navigate to `edge://extensions`
-2. Enable **Developer Mode** (toggle in the top-right corner).
-3. Click **Load unpacked**.
-4. Select the [`dist/extension`](dist/extension) folder from this repository.
-5. Visit [Acheron](https://acheron.dylanmccoyshaw.workers.dev/).
+1. Download or clone this repository to your computer:
+   - If downloading as a ZIP from GitHub: click the green **Code** button -> **Download ZIP**, then extract it.
+2. Open your browser's extensions page:
+   - **Chrome / Brave**: `chrome://extensions`
+   - **Edge**: `edge://extensions`
+   - **Opera**: `opera://extensions`
+3. Turn on the **Developer Mode** toggle (usually in the top-right corner).
+4. Click the **Load unpacked** button (top-left).
+5. Select the `dist/extension` folder inside this repository.
+6. Open [https://acheron.dylanmccoyshaw.workers.dev/](https://acheron.dylanmccoyshaw.workers.dev/) and play!
+
+---
+
+### 💡 Quick Controls & Tips
+
+- **Switching Modes**: Click the **Float** or **Dock** button in the mini-map header to toggle between the desktop sidebar and a floating, draggable HUD.
+- **Measuring Distance**: Click any tile on the mini-map to place a pin marker. It will display the exact step distance and directions (e.g. `5 steps (3 East, 2 South)`) from your hero. Click **Clear** to remove the pin.
+- **Minimizing**: Click the `—` button in the header to minimize the map into a discreet floating pill (`🗺️ Floor 1 (X, Y)`). Click the pill anytime to expand it back.
+- **First Load**: If you enter the game and the map hasn't loaded yet, simply take one step or refresh the page; the mod will immediately sync with your crawler state.
 
 ---
 
