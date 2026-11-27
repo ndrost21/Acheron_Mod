@@ -1,0 +1,243 @@
+/* Acheron Live Mini-Map Mod Stylesheet */
+
+#acheron-mod-root {
+  font-family: inherit;
+  color: var(--bone, #ECE5D8);
+  box-sizing: border-box;
+  z-index: 10000;
+  user-select: none;
+}
+
+#acheron-mod-root * {
+  box-sizing: border-box;
+}
+
+/* Sidebar Mode (Desktop) */
+#acheron-mod-root.ach-mode-sidebar {
+  position: fixed;
+  left: calc(50% + 295px);
+  top: 16px;
+  width: 340px;
+  max-height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  background: var(--win, #1E1D1A);
+  border: 2px solid var(--grid, #3B3834);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  transition: opacity 0.15s ease;
+}
+
+/* Float Mode (HUD / Mobile) */
+#acheron-mod-root.ach-mode-float {
+  position: fixed;
+  right: 16px;
+  top: 16px;
+  width: 290px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--win, #1E1D1A);
+  border: 2px solid var(--grid, #3B3834);
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: opacity 0.15s ease;
+}
+
+/* Minimized Pill Button */
+#acheron-mod-pill {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10001;
+  background: var(--win, #1E1D1A);
+  color: var(--bone, #ECE5D8);
+  border: 2px solid var(--gold, #E5B13B);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.1s ease, background 0.15s ease;
+}
+
+#acheron-mod-pill:hover {
+  background: var(--grid, #3B3834);
+  transform: translateY(-1px);
+}
+
+/* Header */
+.ach-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: var(--grid, #2D2A26);
+  border-bottom: 1px solid var(--rock, #3B3834);
+  cursor: move;
+}
+
+.ach-mode-sidebar .ach-header {
+  cursor: default;
+}
+
+.ach-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.ach-title {
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--gold, #E5B13B);
+  white-space: nowrap;
+}
+
+.ach-coords {
+  font-size: 11px;
+  color: var(--ash, #A8A297);
+  white-space: nowrap;
+}
+
+.ach-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ach-btn {
+  background: transparent;
+  border: 1px solid var(--rock, #4A463E);
+  color: var(--bone, #ECE5D8);
+  font-size: 11px;
+  font-family: inherit;
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.ach-btn:hover {
+  background: var(--rock, #4A463E);
+  color: var(--gold, #E5B13B);
+}
+
+.ach-btn.ach-active {
+  border-color: var(--gold, #E5B13B);
+  color: var(--gold, #E5B13B);
+}
+
+/* Viewport / Canvas Container */
+.ach-viewport {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  min-height: 220px;
+  max-height: 380px;
+  overflow: auto;
+  background: var(--void, #141311);
+}
+
+.ach-viewport canvas {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  cursor: crosshair;
+}
+
+/* Measurement Bar */
+.ach-measure {
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--bone, #ECE5D8);
+  background: var(--grid, #252320);
+  border-top: 1px solid var(--rock, #3B3834);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ach-measure-clear {
+  color: var(--hurt, #D44638);
+  cursor: pointer;
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+/* Collapsible Legend */
+.ach-legend-wrap {
+  border-top: 1px solid var(--rock, #3B3834);
+  font-size: 11px;
+  background: var(--win, #1E1D1A);
+}
+
+.ach-legend-summary {
+  padding: 6px 10px;
+  cursor: pointer;
+  color: var(--ash, #A8A297);
+  font-size: 11px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ach-legend-summary::-webkit-details-marker {
+  display: none;
+}
+
+.ach-legend-summary:hover {
+  color: var(--bone, #ECE5D8);
+}
+
+.ach-legend-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 8px;
+  padding: 6px 10px 10px 10px;
+  font-size: 10px;
+  color: var(--ash, #A8A297);
+  max-height: 130px;
+  overflow-y: auto;
+}
+
+.ach-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ach-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.ach-dot-hero { background: var(--bone, #ECE5D8); border: 1px solid var(--gold, #E5B13B); }
+.ach-dot-seen { background: var(--floor-1, #D6CDC0); }
+.ach-dot-stairs { background: var(--gold, #E5B13B); }
+.ach-dot-safe { border: 2px solid var(--safe-edge, #3DA86B); }
+.ach-dot-mon { background: var(--hurt, #D44638); border-radius: 50%; }
+.ach-dot-hunt { background: var(--hunt, #E03131); border-radius: 50%; border: 1px solid #FFF; }
+.ach-dot-shop { background: #F2C94C; border-radius: 50%; }
+.ach-dot-lock { background: var(--gold, #E5B13B); }
+.ach-dot-fog { background: var(--room, #757067); }
+
+/* Responsive Adjustments */
+@media (max-width: 959px) {
+  #acheron-mod-root.ach-mode-sidebar {
+    display: none !important;
+  }
+}
